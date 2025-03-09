@@ -1,0 +1,11 @@
+.general-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.general-info .buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-self: flex-end;
+}

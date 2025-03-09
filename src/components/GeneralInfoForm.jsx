@@ -26,12 +26,15 @@ function GeneralInfoForm({ handleSubmit }) {
   return (
     <form onSubmit={(e) => handleSubmit(e, { name, email, phone })}>
       <h2>General Information</h2>
+
       <FormField
         name="name"
         label="Name"
         onChange={handleNameChange}
         value={name}
       />
+
+      <div></div>
       <FormField
         type="email"
         name="email"
@@ -46,8 +49,8 @@ function GeneralInfoForm({ handleSubmit }) {
         onChange={handlePhoneChange}
         value={phone}
       />
-      <button onClick={handleClear}>Clear</button>
       <button type="submit">Submit</button>
+      <button onClick={handleClear}>Clear</button>
     </form>
   );
 }

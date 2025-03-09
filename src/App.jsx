@@ -18,6 +18,10 @@ function App() {
     setGeneralInfo({ name, email, phone });
   };
 
+  const updateGeneralInfo = (editedInfo) => {
+    setGeneralInfo(editedInfo);
+  };
+
   return (
     <div className="container">
       <header>
@@ -28,7 +32,7 @@ function App() {
           <GeneralInfoForm handleSubmit={handleGeneralInfoFormSubmit} />
         </div>
 
-        <Resume generalInfo={generalInfo} />
+        <Resume generalInfo={generalInfo} updateInfo={updateGeneralInfo} />
       </main>
     </div>
   );

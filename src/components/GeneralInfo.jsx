@@ -1,14 +1,15 @@
-function GeneralInfo({ name, email, phone }) {
+import '../styles/GeneralInfo.css';
+
+function GeneralInfo({ name, email, phone, toggleEdit }) {
   return (
     <div className="general-info">
-      <h1>General Information</h1>
       <h2>{name}</h2>
       <div>
         {email} | {phone}
       </div>
       <div className="buttons">
-        <button>Edit</button>
-        <button>Remove</button>
+        <button onClick={toggleEdit}>Edit</button>
+        <button className="warning">Remove</button>
       </div>
     </div>
   );
