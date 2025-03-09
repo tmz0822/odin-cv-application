@@ -8,29 +8,37 @@ function Resume({ generalInfo, updateInfo }) {
 
   const [isEditingGeneralInfo, setIsEditingGeneralInfo] = useState(false);
 
-  const toggleEdit = () => {
+  const hasGeneralInfo = Object.keys(generalInfo).length > 0;
+
+  const toggleEditGeneralForm = () => {
     setIsEditingGeneralInfo(!isEditingGeneralInfo);
   };
 
   return (
     <div className="resume">
-      <h1>General Information</h1>
+      {!hasGeneralInfo && <div>Empty</div>}
       <div>
         {isEditingGeneralInfo ? (
           <EditableGeneralInfo
             generalInfo={generalInfo}
             updateInfo={updateInfo}
-            toggleEdit={toggleEdit}
+            toggleEdit={toggleEditGeneralForm}
           />
         ) : (
           <GeneralInfo
             name={name}
             email={email}
             phone={phone}
-            toggleEdit={toggleEdit}
+            toggleEdit={toggleEditGeneralForm}
+            updateInfo={updateInfo}
           />
         )}
       </div>
+      <hr />
+      <h2 className="title">Education</h2>
+
+      <hr />
+      <h2 className="title">Practical Experience</h2>
     </div>
   );
 }
