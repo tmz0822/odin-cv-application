@@ -1,12 +1,11 @@
 import FormField from './FormField';
 import plusSvg from '../assets/plus-solid.svg';
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
-function PracticalExperienceForm() {
+function PracticalExperienceForm({ handlePracticalExperienceFormSubmit }) {
   const [responsibility, setResponsibility] = useState('');
   const [responsibilities, setResponsibilities] = useState([]);
-
-  console.log(responsibilities);
 
   function handleAddResponsibility() {
     const newResponsibilities = responsibilities.concat(responsibility);
@@ -20,8 +19,27 @@ function PracticalExperienceForm() {
     setResponsibility(e.target.value);
   }
 
+  function handleSubmit(formData) {
+    const practicalExperience = {
+      id: uuidv4(),
+      name: formData.get('name'),
+      position: formData.get('position'),
+      startDate: formData.get('startDate'),
+      endDate: formData.get('endDate'),
+      responsibilities: responsibilities,
+    };
+    handlePracticalExperienceFormSubmit(practicalExperience);
+
+    clearInputs();
+  }
+
+  function clearInputs() {
+    setResponsibility('');
+    setResponsibilities([]);
+  }
+
   return (
-    <form className="add-responsibility-form">
+    <form className="add-responsibility-form" action={handleSubmit}>
       <h2>Practical Experience</h2>
       <FormField label="Company Name" name="name" />
       <FormField label="Position" name="position" />
@@ -52,7 +70,9 @@ function PracticalExperienceForm() {
         </ul>
       )}
       <button type="submit">Submit</button>
-      <button>Clear</button>
+      <button type="reset" onClick={clearInputs}>
+        Clear
+      </button>
     </form>
   );
 }

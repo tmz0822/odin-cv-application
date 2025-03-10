@@ -34,14 +34,47 @@ function App() {
       name: 'Tech Solutions Inc.',
       position: 'Software Engineer',
       startDate: '2021-01',
-      endDate: 'Present',
+      endDate: '2025-03',
       responsibilities: [
         'Developed and maintained web applications using JavaScript and React.',
         'Collaborated with cross-functional teams to deliver projects on time.',
         'Optimized application performance, reducing load times by 30%.',
       ],
     },
+    {
+      id: 2,
+      name: 'Innovate Tech LLC',
+      position: 'Junior Developer',
+      startDate: '2019-06',
+      endDate: '2020-12',
+      responsibilities: [
+        'Assisted in building and testing software modules for client projects.',
+        'Debugged and resolved issues in existing applications.',
+        'Documented technical processes and user manuals for new software.',
+      ],
+    },
   ]);
+
+  console.log(practicalExperiences);
+
+  function handlePracticalExperienceFormSubmit(practicalExperience) {
+    const newPracticalExperiences = [
+      ...practicalExperiences,
+      practicalExperience,
+    ];
+    setPracticalExperiences(newPracticalExperiences);
+  }
+
+  function updatePracticalExperience(newExperience) {
+    const newPracticalExperiences = practicalExperiences.map((experience) => {
+      if (experience.id === newExperience.id) {
+        return newExperience;
+      } else {
+        return experience;
+      }
+    });
+    setPracticalExperiences(newPracticalExperiences);
+  }
 
   function handleEducationFormSubmit(formData) {
     const name = formData.get('name');
@@ -98,7 +131,11 @@ function App() {
           <EducationInfoForm
             handleEducationFormSubmit={handleEducationFormSubmit}
           />
-          <PracticalExperienceForm />
+          <PracticalExperienceForm
+            handlePracticalExperienceFormSubmit={
+              handlePracticalExperienceFormSubmit
+            }
+          />
         </div>
 
         <Resume
@@ -108,6 +145,7 @@ function App() {
           updateEducationInfo={updateEducationInfo}
           removeEducationInfo={removeEducationInfo}
           practicalExperiences={practicalExperiences}
+          updatePracticalExperience={updatePracticalExperience}
         />
       </main>
     </div>

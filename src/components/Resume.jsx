@@ -12,6 +12,7 @@ function Resume({
   updateEducationInfo,
   removeEducationInfo,
   practicalExperiences,
+  updatePracticalExperience,
 }) {
   const { name, email, phone } = generalInfo;
 
@@ -62,6 +63,7 @@ function Resume({
           <PracticalExperienceInfo
             key={experience.id}
             experience={experience}
+            updatePracticalExperience={updatePracticalExperience}
           />
         ))}
       </section>

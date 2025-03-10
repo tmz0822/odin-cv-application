@@ -39,11 +39,29 @@
   align-items: center;
 }
 
+.practical-experience .top-section,
+.practical-experience .editable-top-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.practical-experience .top-section .buttons,
+.practical-experience .editable-top-section .buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.practical-experience .editable-top-section .date {
+  display: flex;
+  align-items: center;
+}
+
 .practical-experience .responsibility-list {
   margin-left: 1.2rem;
 }
 
-.practical-experience .responsibility-list li .content {
+.practical-experience .responsibility-list .content {
   display: flex;
   justify-content: space-between;
 }
@@ -61,6 +79,14 @@
 
 .practical-experience .responsibility-list button.edit {
   color: green;
+}
+
+.practical-experience .responsibility-list .content.editable .buttons {
+}
+.practical-experience .responsibility-list .content.editable button {
+  background-color: #008cba;
+  color: #fff;
+  padding: 0.5rem 0.7rem;
 }
 
 .add-responsibility-form .responsibilities {
