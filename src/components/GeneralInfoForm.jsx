@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import FormField from './FormField';
 
-function GeneralInfoForm({ handleSubmit }) {
+function GeneralInfoForm({ handleGeneralInfoFormSubmit }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -23,8 +23,15 @@ function GeneralInfoForm({ handleSubmit }) {
     setPhone('');
   };
 
+  function handleSubmit(e) {
+    handleGeneralInfoFormSubmit(e, { name, email, phone });
+    setName('');
+    setEmail('');
+    setPhone('');
+  }
+
   return (
-    <form onSubmit={(e) => handleSubmit(e, { name, email, phone })}>
+    <form onSubmit={handleSubmit}>
       <h2>General Information</h2>
 
       <FormField

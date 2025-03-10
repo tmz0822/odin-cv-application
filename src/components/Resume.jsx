@@ -3,6 +3,7 @@ import '../styles/Resume.css';
 import EditableGeneralInfo from './EditableGeneralInfo';
 import GeneralInfo from './GeneralInfo';
 import EducationInfo from './EducationInfo';
+import PracticalExperienceInfo from './PracticalExperienceInfo';
 
 function Resume({
   generalInfo,
@@ -10,6 +11,7 @@ function Resume({
   educations,
   updateEducationInfo,
   removeEducationInfo,
+  practicalExperiences,
 }) {
   const { name, email, phone } = generalInfo;
 
@@ -55,7 +57,14 @@ function Resume({
       </section>
       <hr />
       <h2 className="title">Practical Experience</h2>
-      <section className="experience"></section>
+      <section className="experience">
+        {practicalExperiences.map((experience) => (
+          <PracticalExperienceInfo
+            key={experience.id}
+            experience={experience}
+          />
+        ))}
+      </section>
     </div>
   );
 }

@@ -27,7 +27,20 @@ function App() {
       endDate: '2018-06',
     },
   ]);
-  const [practicalExperiences, setPracticalExperiences] = useState([]);
+  const [practicalExperiences, setPracticalExperiences] = useState([
+    {
+      id: 1,
+      name: 'Tech Solutions Inc.',
+      position: 'Software Engineer',
+      startDate: '2021-01',
+      endDate: 'Present',
+      responsibilities: [
+        'Developed and maintained web applications using JavaScript and React.',
+        'Collaborated with cross-functional teams to deliver projects on time.',
+        'Optimized application performance, reducing load times by 30%.',
+      ],
+    },
+  ]);
 
   function handleEducationFormSubmit(formData) {
     const name = formData.get('name');
@@ -78,8 +91,12 @@ function App() {
       </header>
       <main>
         <div className="forms">
-          <GeneralInfoForm handleSubmit={handleGeneralInfoFormSubmit} />
-          <EducationInfoForm handleSubmit={handleEducationFormSubmit} />
+          <GeneralInfoForm
+            handleGeneralInfoFormSubmit={handleGeneralInfoFormSubmit}
+          />
+          <EducationInfoForm
+            handleEducationFormSubmit={handleEducationFormSubmit}
+          />
         </div>
 
         <Resume
@@ -88,6 +105,7 @@ function App() {
           educations={educations}
           updateEducationInfo={updateEducationInfo}
           removeEducationInfo={removeEducationInfo}
+          practicalExperiences={practicalExperiences}
         />
       </main>
     </div>
