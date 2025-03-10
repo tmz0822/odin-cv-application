@@ -1,4 +1,4 @@
-import '../styles/GeneralInfo.css';
+import '../styles/Resume.css';
 
 function GeneralInfo({ name, email, phone, toggleEdit, updateInfo }) {
   return (

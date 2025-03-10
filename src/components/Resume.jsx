@@ -2,8 +2,15 @@ import { useState } from 'react';
 import '../styles/Resume.css';
 import EditableGeneralInfo from './EditableGeneralInfo';
 import GeneralInfo from './GeneralInfo';
+import EducationInfo from './EducationInfo';
 
-function Resume({ generalInfo, updateInfo }) {
+function Resume({
+  generalInfo,
+  updateGeneralInfo,
+  educations,
+  updateEducationInfo,
+  removeEducationInfo,
+}) {
   const { name, email, phone } = generalInfo;
 
   const [isEditingGeneralInfo, setIsEditingGeneralInfo] = useState(false);
@@ -21,7 +28,7 @@ function Resume({ generalInfo, updateInfo }) {
         {isEditingGeneralInfo ? (
           <EditableGeneralInfo
             generalInfo={generalInfo}
-            updateInfo={updateInfo}
+            updateInfo={updateGeneralInfo}
             toggleEdit={toggleEditGeneralForm}
           />
         ) : (
@@ -30,15 +37,25 @@ function Resume({ generalInfo, updateInfo }) {
             email={email}
             phone={phone}
             toggleEdit={toggleEditGeneralForm}
-            updateInfo={updateInfo}
+            updateInfo={updateGeneralInfo}
           />
         )}
       </div>
       <hr />
       <h2 className="title">Education</h2>
-
+      <section className="education">
+        {educations.map((education) => (
+          <EducationInfo
+            key={education.id}
+            education={education}
+            updateEducationInfo={updateEducationInfo}
+            removeEducationInfo={removeEducationInfo}
+          />
+        ))}
+      </section>
       <hr />
       <h2 className="title">Practical Experience</h2>
+      <section className="experience"></section>
     </div>
   );
 }

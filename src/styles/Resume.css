@@ -9,3 +9,32 @@
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
+
+.general-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.general-info .name {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.general-info .buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-self: flex-end;
+}
+
+.education-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.education-info .buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}

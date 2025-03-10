@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../styles/GeneralInfo.css';
+import '../styles/Resume.css';
 
 function EditableGeneralInfo({ generalInfo, updateInfo, toggleEdit }) {
   const [editedInfo, setEditedInfo] = useState(generalInfo);
@@ -17,7 +17,7 @@ function EditableGeneralInfo({ generalInfo, updateInfo, toggleEdit }) {
   };
 
   return (
-    <form class="general-info" onSubmit={handleSubmit}>
+    <form className="general-info" onSubmit={handleSubmit}>
       <input
         name="name"
         label="Name"
