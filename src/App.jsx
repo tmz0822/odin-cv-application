@@ -4,6 +4,7 @@ import './styles/App.css';
 import Resume from './components/Resume';
 import EducationInfoForm from './components/EducationInfoForm';
 import { v4 as uuidv4 } from 'uuid';
+import PracticalExperienceForm from './components/PracticalExperienceForm';
 
 function App() {
   const [generalInfo, setGeneralInfo] = useState({
@@ -97,6 +98,7 @@ function App() {
           <EducationInfoForm
             handleEducationFormSubmit={handleEducationFormSubmit}
           />
+          <PracticalExperienceForm />
         </div>
 
         <Resume

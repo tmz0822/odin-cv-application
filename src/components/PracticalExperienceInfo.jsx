@@ -15,6 +15,19 @@ function PracticalExperienceInfo({ experience }) {
       <div>
         {formattedStartDate} - {experience.endDate}
       </div>
+      <ul className="responsibility-list">
+        {experience.responsibilities.map((responsibility, index) => (
+          <li key={index}>
+            <div className="content">
+              <span>{responsibility}</span>
+              <div className="buttons">
+                <button className="edit">✎</button>
+                <button className="warning">❌</button>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

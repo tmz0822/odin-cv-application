@@ -38,3 +38,52 @@
   gap: 0.5rem;
   align-items: center;
 }
+
+.practical-experience .responsibility-list {
+  margin-left: 1.2rem;
+}
+
+.practical-experience .responsibility-list li .content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.practical-experience .responsibility-list .buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.practical-experience .responsibility-list button {
+  background-color: #fff;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.practical-experience .responsibility-list button.edit {
+  color: green;
+}
+
+.add-responsibility-form .responsibilities {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-responsibility-form .responsibilities .form-field {
+  flex: 1;
+}
+
+.add-responsibility-form .add-responsibility-button {
+  background-color: #fff;
+  align-self: flex-end;
+}
+
+.add-responsibility-form .add-responsibility-button:hover {
+  background-color: aquamarine;
+}
+
+.add-responsibility-form .add-responsibility-button img {
+  filter: invert(23%) sepia(73%) saturate(5576%) hue-rotate(135deg)
+    brightness(97%) contrast(103%);
+  width: 18px;
+  height: 18px;
+}
